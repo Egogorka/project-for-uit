@@ -17,6 +17,7 @@ if ($mysqli->connect_errno) {
 //
 ///////////////////
 
+$container = array();
 $container[\mysqli::class] = $mysqli;
 
 require "interfaces/di.php";

@@ -38,11 +38,15 @@ class UserDB implements UserDBInterface
             return null;
     }
 
-    function save(UserInterface $user): bool
+    function save(UserInterface& $user):bool
     {
-        $this->mysqli->query(
-            'INSERT INTO notes.users (login, password) VALUES (\''.$user->getLogin().'\', \''.$user->getPasswordHash().'\')',
-        );
+        $query = 'INSERT INTO notes.users (login, password) VALUES (\''.$user->getLogin().'\', \''.$user->getPasswordHash().'\')';
+        if(!$result = $this->mysqli->query($query))
+            return false;
+
+        $db_user = $result->fetch_object();
+
+        $user->setId($db_user->id);
         return true;
     }
 }

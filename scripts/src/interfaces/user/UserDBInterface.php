@@ -8,5 +8,6 @@ interface UserDBInterface
 
     function findByLogin(string $login):?UserInterface;
 
-    function save(UserInterface $user): bool;
+    // Updates ID of user
+    function save(UserInterface& $user):bool;
 }
