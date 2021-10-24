@@ -2,19 +2,21 @@
 
 echo "PHP works!<br/><br/>";
 
+$container = array();
 
+// Loading dependencies
+require 'src/dependencies.php';
 
-$servername = "localhost";
-$username = "NotesUser";
-$password = "simple_password_for_user";
+$user_db = $container[\domain\user\UserDB::class];
+$note_db = $container[\domain\note\NoteDB::class];
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password);
+// Test user adding
+$user = new \domain\user\User("Test");
+$user->setPassword("Test pass");
 
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-echo "Connected to MYSQL successfully";
+if($user_db->save($user))
+    echo "Saved successfully!";
+else
+    echo "Something went wrong";
 
 ?>
