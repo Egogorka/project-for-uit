@@ -8,31 +8,23 @@
 
 <?php
 require "../scripts/main.php";
-
-var_dump($_POST);
-
-$logged = false;
+echo "<br>index.php<br>";
+var_dump($bundle);
 ?>
+
 
 <h2>User</h2>
 
-<?php if(!$logged){
-    echo "
-    <b>Register form</b>
-    <form method='post'>
-        Enter your login and password <br>
-        <input name='login' type='text'>
-        <input name='pass' type='password'>
-        <input type='submit'>
-    </form>
-    ";
-} else
-    echo "
-    <p>You are logged</p>
-    "
-    ?>
+<?php $container[\application\view\AuthView::class]->render($bundle); ?>
 
 <h2>Notes</h2>
+
+<form method='post'>
+    <input name='header' type='text'> <br>
+    <textarea class="text-field" name="text"></textarea> <br>
+    <input type='submit'>
+</form>
+
 
 
 
