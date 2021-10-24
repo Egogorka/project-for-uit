@@ -2,7 +2,7 @@
 
 namespace domain\note;
 
-use interfaces\note\NoteInterface;
+use interfaces\domain\note\NoteInterface;
 
 class Note implements NoteInterface
 {

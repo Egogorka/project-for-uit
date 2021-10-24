@@ -1,6 +1,6 @@
 <?php
 
-namespace interfaces\user;
+namespace interfaces\domain\user;
 
 interface AuthInterface
 {

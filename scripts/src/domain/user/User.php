@@ -2,7 +2,7 @@
 
 namespace domain\user;
 
-use interfaces\user\UserInterface;
+use interfaces\domain\user\UserInterface;
 
 class User implements UserInterface
 {

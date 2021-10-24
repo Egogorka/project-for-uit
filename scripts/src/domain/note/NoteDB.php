@@ -2,8 +2,8 @@
 
 namespace domain\note;
 
-use interfaces\note\NoteDBInterface;
-use interfaces\note\NoteInterface;
+use interfaces\domain\note\NoteDBInterface;
+use interfaces\domain\note\NoteInterface;
 
 class NoteDB implements NoteDBInterface
 {

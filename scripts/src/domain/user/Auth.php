@@ -2,11 +2,11 @@
 
 namespace domain\user;
 
-use interfaces\user\AuthInterface;
-use interfaces\user\UserDBInterface;
-use interfaces\user\UserInterface;
+use interfaces\domain\user\AuthInterface;
+use interfaces\domain\user\UserDBInterface;
+use interfaces\domain\user\UserInterface;
 
-class Auth implements \interfaces\user\AuthInterface
+class Auth implements \interfaces\domain\user\AuthInterface
 {
     protected UserDBInterface $userDB;
     public function __construct(UserDBInterface $userDB)

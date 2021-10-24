@@ -1,6 +1,6 @@
 <?php
 
-namespace interfaces\note;
+namespace interfaces\domain\note;
 
 interface NoteDBInterface
 {

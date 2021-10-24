@@ -2,8 +2,8 @@
 
 namespace domain\user;
 
-use interfaces\user\UserDBInterface;
-use interfaces\user\UserInterface;
+use interfaces\domain\user\UserDBInterface;
+use interfaces\domain\user\UserInterface;
 
 class UserDB implements UserDBInterface
 {

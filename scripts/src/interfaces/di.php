@@ -1,4 +1,4 @@
 <?php
 
-require "user/di.php";
-require "note/di.php";
+require "domain/di.php";
+require "application/di.php";
