@@ -36,10 +36,7 @@ class Auth implements \interfaces\domain\user\AuthInterface
         if(!$db_user = $this->userDB->findByLogin($user->getLogin()))
             return AuthInterface::NO_USER;
 
-        echo $user->getPasswordHash().'<br>';
-        echo $db_user->getPasswordHash();
-
-        if($db_user->getPasswordHash() == $user->getPasswordHash() ) {
+        if(password_verify($user->getPassword(), $db_user->getPasswordHash())) {
             $user->setId($db_user->getId());
             return AuthInterface::OKAY;
         }
