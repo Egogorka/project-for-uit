@@ -6,13 +6,15 @@ use interfaces\user\UserInterface;
 
 class User implements UserInterface
 {
-    protected int $id;
+    // If id is null, then this User is not in database
+    protected int|null $id;
     protected string $login;
     protected string $password_hash;
 
-    function __construct(string $login, string $password_hash=""){
+    function __construct(string $login, string $password_hash="", int $id=null){
         $this->login = $login;
         $this->password_hash = $password_hash;
+        $this->id = $id;
     }
 
     /**

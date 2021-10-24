@@ -16,14 +16,26 @@ class UserDB implements UserDBInterface
 
     function findById(int $id): ?UserInterface
     {
-//        $result = $this->mysqli->query(
-//            'SELECT * FROM notes.users WHERE id='.$id
-//        );
+        $result = $this->mysqli->query(
+            'SELECT * FROM notes.users WHERE id='.$id
+        );
+        if($result->num_rows){
+            $obj = $result->fetch_object();
+            return new User($obj->login, $obj->password, $obj->id);
+        } else
+            return null;
     }
 
     function findByLogin(string $login): ?UserInterface
     {
-        // TODO: Implement findByLogin() method.
+        $result = $this->mysqli->query(
+            'SELECT * FROM notes.users WHERE login=\''.$login.'\''
+        );
+        if($result->num_rows){
+            $obj = $result->fetch_object();
+            return new User($obj->login, $obj->password, $obj->id);
+        } else
+            return null;
     }
 
     function save(UserInterface $user): bool
