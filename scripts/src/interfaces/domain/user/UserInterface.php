@@ -14,5 +14,5 @@ interface UserInterface
     public function setLogin(string $login);
 
     public function getPasswordHash():string;
-    public function setPassword(string $pass); //Not setPasswordHash!
+    public function setPasswordHash(string $pass); //Not setPasswordHash!
 }

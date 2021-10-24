@@ -9,9 +9,11 @@ class User implements UserInterface
     // If id is null, then this User is not in database
     protected int|null $id;
     protected string $login;
-    protected string $password_hash;
+    protected string|null $password_hash;
 
-    function __construct(string $login, string $password_hash="", int $id=null){
+    protected string|null $password;
+
+    function __construct(string $login, string $password_hash=null, int $id=null){
         $this->login = $login;
         $this->password_hash = $password_hash;
         $this->id = $id;
@@ -34,9 +36,17 @@ class User implements UserInterface
     }
 
     /**
+     * @param string $password
+     */
+    public function setPassword(string $password): void
+    {
+        $this->password = $password;
+    }
+
+    /**
      * @param string $pass
      */
-    public function setPassword(string $pass): void
+    public function setPasswordHash(string $pass): void
     {
         $this->password_hash = password_hash($pass, PASSWORD_DEFAULT);
     }
@@ -62,6 +72,14 @@ class User implements UserInterface
      */
     public function getPasswordHash(): string
     {
-        return $this->password_hash;
+        return $this->password_hash ?? password_hash($this->password, PASSWORD_DEFAULT);
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPassword(): ?string
+    {
+        return $this->password;
     }
 }

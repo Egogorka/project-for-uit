@@ -3,4 +3,7 @@
 session_start();
 require "src/dependencies.php";
 
-$cur_user = $_SESSION["user"] | null;
+$bundle = array();
+
+$container[\application\controller\AuthController::class]($bundle);
+

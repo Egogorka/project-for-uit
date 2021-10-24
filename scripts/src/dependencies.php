@@ -22,3 +22,4 @@ $container[\mysqli::class] = $mysqli;
 
 require "interfaces/di.php";
 require "domain/di.php";
+require "application/di.php";
